@@ -13,3 +13,4 @@ secrets.env
 # Kubernetes configs
 .kube/
 
+backend-env-secret.yaml

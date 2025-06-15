@@ -1,0 +1,14 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-backend-service
+  namespace: backend
+spec:
+  selector:
+    app: node-backend
+  ports:
+    - protocol: TCP
+      port: {{ .Values.backend.servicePort | int }}
+      targetPort: {{ .Values.backend.containerPort | int }}
+

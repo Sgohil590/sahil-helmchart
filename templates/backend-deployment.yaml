@@ -1,0 +1,33 @@
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-backend
+  namespace: backend
+spec:
+  replicas: {{ .Values.backend.replicas }}
+  selector:
+    matchLabels:
+      app: node-backend
+  template:
+    metadata:
+      labels:
+        app: node-backend
+    spec:
+      containers:
+        - name: node-backend
+          image: {{ .Values.image.nodejs }}
+          command: ["pm2-runtime"]
+          args: ["index.js", "--", "--host=0.0.0.0"]
+          ports:
+            - containerPort: {{ .Values.backend.containerPort | int }}
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.backend.configmapName }}
+            - secretRef:
+                name: {{ .Values.backend.secretName }}
+      imagePullSecrets:
+        - name: {{ .Values.backend.imagePullSecret }}
+
+

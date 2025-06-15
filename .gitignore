@@ -1,0 +1,15 @@
+
+# Ignore secret files
+*.secret.yaml
+*.env
+.env
+secrets.env
+.env.*
+
+# Helm-related cache
+*.tgz
+.chart-releases/
+
+# Kubernetes configs
+.kube/
+

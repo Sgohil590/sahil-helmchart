@@ -1,0 +1,26 @@
+---
+image:
+  nodejs: 947557066309.dkr.ecr.ap-south-1.amazonaws.com/nodejs2
+  mongodb: mongo:6.0
+  mysql: mysql:8.0
+  redis: redis:7
+backend:
+  replicas: 1
+  servicePort: 80
+  containerPort: 1351
+  domain: nodejs.sahil.virals.studio
+  secretName: backend-env-secret
+  configmapName:  backend-env-config 
+  imagePullSecret: sahil1
+mongodb:
+  replicas: 2
+  rootUser: root
+  rootPassword: "REDACTED"
+  database: opinioslab
+mysql:
+  rootPassword: "REDACTED"
+  database: opinioslab
+redis:
+  replicas: 1
+redis2:
+  replicas: 1

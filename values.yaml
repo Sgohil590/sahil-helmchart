@@ -15,10 +15,10 @@ backend:
 mongodb:
   replicas: 2
   rootUser: root
-  rootPassword: "REDACTED"
+  rootPassword: "6354"
   database: opinioslab
 mysql:
-  rootPassword: "REDACTED"
+  rootPassword: "6354"
   database: opinioslab
 redis:
   replicas: 1
